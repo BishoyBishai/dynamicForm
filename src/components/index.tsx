@@ -1,9 +1,10 @@
 import * as React from "react";
+import AppHeader from "./header/index";
 class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Dynamic Form</h1>
+        <AppHeader />
       </div>
     );
   }
