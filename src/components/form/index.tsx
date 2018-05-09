@@ -5,7 +5,9 @@ import {
   FormComponentActions
 } from "../../containers/form/types";
 import { Input } from "semantic-ui-react";
-
+import QuestionComponent from "./question/index";
+import { addQuestionAnswer } from "../../containers/form/actions";
+import "./style.scss";
 class AppForm extends React.Component<
   FormComponentProps & FormComponentActions
 > {
@@ -25,12 +27,13 @@ class AppForm extends React.Component<
       title
     } = this.props;
     return (
-      <div>
+      <div className="form-container">
         <p>{title}</p>
         {question && (
-          <Input
-            value={question.answer || ""}
-            onChange={(e, { value }) => addQuestionAnswer(question.id, value)}
+          <QuestionComponent
+            {...question}
+            optional={isNextEnable}
+            addQuestionAnswer={addQuestionAnswer}
           />
         )}
         <FormFooter
