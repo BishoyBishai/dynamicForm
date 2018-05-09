@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { routerReducer as router } from "react-router-redux";
 import { AnyAction } from "redux";
-
-export function reducers(store = {}, action: AnyAction) {
-  return store;
-}
+import { fromReducers } from "../containers/form/reducer";
+export const reducers = combineReducers({
+  fromReducers
+});
