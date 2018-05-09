@@ -11,7 +11,7 @@ import {
 export const initialFormState: FormState = {
   title: "",
   activeIndex: 0,
-  formType: FORM_TYPE.SUBMITTED,
+  formType: FORM_TYPE.EDITABLE,
   questions: []
 };
 export function fromReducers(
@@ -51,17 +51,18 @@ export function fromReducers(
     case SUBMIT_FORM:
       return {
         ...state,
-        formType: FORM_TYPE.SUBMITTED
-      };
-    case START_NEW_FORM:
-      return {
-        ...state,
-        formType: FORM_TYPE.EDITABLE,
-        activeIndex: 0,
+        formType: FORM_TYPE.SUBMITTED,
+        activeIndex: -1,
         questions: state.questions.map(question => ({
           ...question,
           answer: null
         }))
+      };
+    case START_NEW_FORM:
+      return {
+        ...state,
+        activeIndex: 0,
+        formType: FORM_TYPE.EDITABLE
       };
   }
   return state;

@@ -38,6 +38,7 @@ export interface FormComponentProps {
   hasNext: boolean;
   isNextEnable:boolean;
   hasPervious: boolean;
+  progressState:number;
 }
 export interface FormComponentActions {
   loadQuestionsList: () => void;

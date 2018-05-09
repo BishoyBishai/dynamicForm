@@ -27,7 +27,9 @@ const mapStateToProps = (s: ReducersProps): FormComponentProps => {
         questions[activeIndex].answer,
         questions[activeIndex].min_char_length
       ),
-    hasPervious: activeIndex > 0
+    hasPervious: activeIndex > 0,
+    progressState:
+      (questions.length > 0 && (activeIndex + 1) / questions.length * 100) || 0
   };
 };
 const mapDispatchToProps = dispatch => ({
